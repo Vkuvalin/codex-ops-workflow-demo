@@ -1,0 +1,27 @@
+flowchart TD
+    CC[Command Center<br/>Human + ChatGPT] --> Task[Task framing]
+    Task --> Scope[Scope boundaries<br/>goals / non-goals / approvals]
+    Scope --> Guardrails[Project guardrails<br/>AGENTS.md invariants]
+    Guardrails --> Route[Route selection<br/>L0-L5]
+
+    Route --> Skill{Need reusable skill?}
+    Skill -->|yes| Skills[Skill procedure<br/>audit / review / docs / reasoning]
+    Skill -->|no| Mode[Execution mode]
+    Skills --> Mode
+
+    Mode --> Kind{Task kind}
+    Kind -->|Audit / research / review| ReadOnly[Read-only investigation]
+    ReadOnly --> Report[Preserved report]
+    Report --> Review[Command Center review]
+
+    Kind -->|Implementation| Size{Substantial work?}
+    Size -->|yes| Plan[ExecPlan<br/>living implementation spec]
+    Size -->|no| Direct[Scoped direct execution]
+
+    Plan --> Work[Codex execution]
+    Direct --> Work
+
+    Work --> Validation[Validation gates]
+    Validation --> Result[Result summary<br/>diff / risks / commands / next step]
+    Result --> Review
+    Review --> Next[Next safe step]

@@ -1,0 +1,12 @@
+flowchart LR
+    L0[L0 Direct<br/>local / reversible / low risk] --> L1[L1 Micro-plan<br/>few clear steps]
+    L1 --> L2[L2 Plan iterations<br/>multi-step implementation]
+    L2 --> L3[L3 Independent checks<br/>audit / review / research]
+    L3 --> L4[L4 Route exploration<br/>architecture choice]
+    L4 --> L5[L5 Deep branching<br/>prototype / high uncertainty]
+
+    R1[Scope] -.increases.-> L5
+    R2[Risk] -.increases.-> L5
+    R3[Planning] -.increases.-> L5
+    R4[Need for audit/report] -.increases.-> L5
+    R5[Need for approval gates] -.increases.-> L5

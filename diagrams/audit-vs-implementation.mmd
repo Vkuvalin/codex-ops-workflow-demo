@@ -1,0 +1,23 @@
+flowchart TD
+    Task[Task] --> Kind{Requested work type}
+
+    Kind -->|Audit / review / research| Inspect[Read-only inspection]
+    Inspect --> Evidence[Evidence and findings]
+    Evidence --> Report[Report]
+    Report --> Decision[Human / Command Center decision]
+
+    Decision -->|Stop| Stop[Stop, no code changes]
+    Decision -->|Need more research| Inspect
+    Decision -->|Approve implementation| Scope[Define implementation scope]
+    Decision -->|Substantial work| Plan[Create ExecPlan]
+
+    Kind -->|Implementation already approved| Scope
+    Scope --> Work[Scoped diff]
+    Plan --> Work
+
+    Work --> Validate[Validation commands / checks]
+    Validate --> Summary[Implementation summary]
+    Summary --> Next[Next safe step]
+
+    Note1[Audit does not automatically modify code] -.-> Inspect
+    Note2[Implementation requires scope and validation] -.-> Work

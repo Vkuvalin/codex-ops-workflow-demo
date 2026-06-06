@@ -1,0 +1,30 @@
+flowchart TD
+    Task[Incoming task] --> Intent[Clarify intent]
+    Intent --> Scope[Define scope and non-goals]
+    Scope --> Risk[Assess risk]
+    Risk --> Duration[Estimate duration / complexity]
+    Duration --> Uncertainty[Assess uncertainty]
+    Uncertainty --> Approval[Check approval boundaries]
+
+    Approval --> Decision{Recommended route}
+
+    Decision --> L0[L0 Direct<br/>small local change]
+    Decision --> L1[L1 Micro-plan<br/>short multi-step task]
+    Decision --> L2[L2 Plan iterations<br/>multi-step implementation]
+    Decision --> L3[L3 Independent checks<br/>audit / review / research]
+    Decision --> L4[L4 Route exploration<br/>architecture comparison]
+    Decision --> L5[L5 Deep branching<br/>prototype / high uncertainty]
+
+    L0 --> Execute[Execute with minimal overhead]
+    L1 --> MicroPlan[State short plan, then execute]
+    L2 --> Checkpoints[Execute through checkpoints]
+    L3 --> Report[Produce findings/report]
+    L4 --> Options[Compare routes before choosing]
+    L5 --> Branches[Explore branches, prototypes, trade-offs]
+
+    Execute --> Validate[Validation / result]
+    MicroPlan --> Validate
+    Checkpoints --> Validate
+    Report --> Review[Human review]
+    Options --> Review
+    Branches --> Review

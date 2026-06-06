@@ -1,0 +1,26 @@
+flowchart TD
+    Need[Substantial implementation task] --> Plan[Create ExecPlan]
+    Plan --> Purpose[Purpose / big picture]
+    Purpose --> Scope[Scope and non-goals]
+    Scope --> Context[Context and orientation]
+    Context --> Milestones[Milestones]
+    Milestones --> Steps[Concrete steps]
+    Steps --> Work[Execute work]
+
+    Work --> Progress[Update progress]
+    Work --> Discoveries[Record surprises and discoveries]
+    Work --> Decisions[Record decision log]
+    Work --> Validation[Run validation]
+
+    Progress --> Continue{More work?}
+    Discoveries --> Continue
+    Decisions --> Continue
+    Validation --> Continue
+
+    Continue -->|yes| Work
+    Continue -->|scope changed| Approval[Ask for approval / revise plan]
+    Approval --> Work
+
+    Continue -->|no| Outcome[Outcomes and retrospective]
+    Outcome --> Recovery[Idempotence / recovery notes]
+    Recovery --> Done[Done / handoff-ready]
