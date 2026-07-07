@@ -329,7 +329,7 @@ Mermaid source: `diagrams/execplan-lifecycle.mmd`
 
 ---
 
-## Почему это полезно
+## Почему это полезно?
 
 Эта operating model улучшает AI-assisted development, делая работу:
 
